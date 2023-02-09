@@ -1,0 +1,41 @@
+from time import time
+import pyautogui as auto
+import pyperclip    
+import time
+import pandas as pd
+from datetime import datetime
+
+print('Press Ctrl-C to quit.')
+
+# auto.press('win')
+# time.sleep(0.5)
+# auto.write('Teams')
+# time.sleep(0.5)
+# auto.press('enter')
+def perform_task():
+    time.sleep(1)
+    auto.click(95,1056)
+    time.sleep(2)
+    i = 1
+    print(i)
+    while i < 30:
+        auto.click(43,371)
+        time.sleep(300)
+        auto.click(43,229) # Chat 314
+        time.sleep(300)
+        i += 1
+        print(i)
+
+desired_hour = 18
+desired_minute = 00
+
+while True:
+    current_time = datetime.now().time()
+    current_hour = current_time.hour
+    current_minute = current_time.minute
+    # check if it's the desired time
+    if current_hour == desired_hour and current_minute == desired_minute:
+        perform_task()
+        break
+    # wait for 1 minute before checking again
+    time.sleep(30)
